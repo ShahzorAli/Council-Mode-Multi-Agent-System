@@ -34,24 +34,24 @@ The UI presents the **Zero-Shot Baseline (Original Intent)** side-by-side with t
 
 ```mermaid
 graph TD
-    User([User Query]) --> Triage{Triage Agent <br> Ollama: Phi-3}
+    User(["User Query"]) --> Triage{"Triage Agent (Ollama: Phi-3)"}
     
-    Triage -- Low Stakes --> Direct[Direct Single-Model Answer]
-    Triage -- High Stakes --> Baseline[Generate Zero-Shot Baseline <br> Original Intent]
+    Triage -- "Low Stakes" --> Direct["Direct Single-Model Answer"]
+    Triage -- "High Stakes" --> Baseline["Generate Zero-Shot Baseline (Original Intent)"]
     
-    Baseline --> RAG[RAG Retrieval <br> FAISS Vector Store]
-    RAG --> Experts[Council Experts]
+    Baseline --> RAG["RAG Retrieval (FAISS Vector Store)"]
+    RAG --> Experts["Council Experts"]
     
     subgraph Council Debate Loop
-        Experts -->|Initial Position| Skeptic{Skeptic Agent <br> Groq: Llama 70B}
-        Skeptic -->|Has Contradictions| ReRetrieval[Iterative Re-Retrieval]
+        Experts -->|Initial Position| Skeptic{"Skeptic Agent (Groq: Llama 70B)"}
+        Skeptic -->|Has Contradictions| ReRetrieval["Iterative Re-Retrieval"]
         ReRetrieval -->|Refined Evidence| Experts
-        Skeptic -->|Consensus / Max Rounds| Synth[Synthesizer Agent <br> NVIDIA: GPT-OSS-20B]
+        Skeptic -->|Consensus / Max Rounds| Synth["Synthesizer Agent (NVIDIA: GPT-OSS-20B)"]
     end
     
-    Synth --> Final[Final Verified Consensus]
+    Synth --> Final["Final Verified Consensus"]
     
-    Direct --> Display([Streamlit UI Dashboard])
+    Direct --> Display(["Streamlit UI Dashboard"])
     Final --> Display
 ```
 
