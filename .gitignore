@@ -1,0 +1,31 @@
+# Council Mode - .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Environment
+.env
+
+# Data (large files)
+data/vector_db/
+data/documents/*.pdf
+data/datasets/cache/
+data/benchmark_results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

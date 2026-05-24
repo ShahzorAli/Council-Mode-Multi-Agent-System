@@ -1,0 +1,15 @@
+venv
+.env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.db
+.ipynb_checkpoints
+data/vector_db/*
+data/documents/*
+.git
+.gitignore
+scratch
+artifacts
+logs
